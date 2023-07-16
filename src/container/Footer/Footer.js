@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <div className="ruby-blog__footer-container">
       <div className="ruby-blog__footer-container-head">
-        Made with 💎 by Sujata Gunale
+        Made by Samson Sanyaolu
       </div>
       <div className="ruby-blog__footer-container-copyright">
-        Design Copyrights All Reserved to <span>ghost.io</span>
+        Design Copyrights All Reserved to <span>Sosamson Blog</span>
       </div>
     </div>
   );
