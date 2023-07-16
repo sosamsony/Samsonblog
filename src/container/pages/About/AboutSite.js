@@ -73,7 +73,7 @@ const AboutSite = () => {
               </div>
             </a>
             <a
-              href="https://linkedin/in/sosamsony"
+              href="https://linkedin.com/in/sosamsony"
               target="_blank"
               rel="noreferrer"
             >
