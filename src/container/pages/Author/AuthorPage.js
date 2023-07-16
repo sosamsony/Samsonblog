@@ -8,9 +8,9 @@ import articles from "../../../data/ArticlesData";
 import "./authorPage.css";
 
 const AuthorPage = (props) => {
-  const [filterAuthor, setFilterAuthor] = useState("suzan walker");
+  const [filterAuthor, setFilterAuthor] = useState("Samson Sanyaolu");
   const [filterAuthorImg, setFilterAuthorImg] = useState(
-    "https://source.unsplash.com/1600x900/?india"
+    "https://source.unsplash.com/1600x900/?uae"
   );
 
   const authorProps = useLocation();
