@@ -1,6 +1,6 @@
 import React from "react";
 import { DiGithubAlt } from "react-icons/di";
-import { AiOutlineInstagram } from "react-icons/ai";
+import { AiOutlineInstagram, AiOutlineLinkedin } from "react-icons/ai";
 // import { GiFrozenRing } from "react-icons/gi";
 import meImg from "../../../assets/me.svg";
 // import ghostImg from "../../../assets/ghost.svg";
@@ -29,8 +29,8 @@ const AboutSite = () => {
             components, you know. The bad thing is, it's just Frontend only.
             This means the data is hardcoded. To see more articles in the
             future, I have to add them manually. Blah
-          </p>
-          <p style={{ textAlign: "center" }}>
+            </p>
+            <p style={{ textAlign: "center" }}>
             Maybe in the future, it will either have its backend from scratch or
             service from the CMS platform. Let us see what the future has in its
             store for the 💎 site. <br /> ( Me actually )
@@ -48,9 +48,9 @@ const AboutSite = () => {
           </div>
           <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__parainfo">
             <p>
-              Just another complex human being with a complex thought system.
-              Currently exploring the Web Development area with MERN as a guide.
-              In my spare time, I think ( or Overthink ).
+            Award winning Google certified Web Developer and UI/UX Designer - Innovative Tech Trainer, transforming brands with stunning web solutions that drives visibility and revenue growth.
+            Currently exploring the Web Development area with MERN as a guide.
+            In my spare time, I think ( or Overthink ).
             </p>
           </div>
           <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social">
@@ -70,6 +70,15 @@ const AboutSite = () => {
             >
               <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social-instagram">
                 <AiOutlineInstagram />
+              </div>
+            </a>
+            <a
+              href="https://linkedin/in/sosamsony"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social-github">
+                <AiOutlineLinkedin />
               </div>
             </a>
           </div>
