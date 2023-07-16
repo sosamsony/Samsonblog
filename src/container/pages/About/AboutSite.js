@@ -1,9 +1,9 @@
 import React from "react";
-import { DiGithubAlt, DiRuby } from "react-icons/di";
+import { DiGithubAlt } from "react-icons/di";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { GiFrozenRing } from "react-icons/gi";
+// import { GiFrozenRing } from "react-icons/gi";
 import meImg from "../../../assets/me.svg";
-import ghostImg from "../../../assets/ghost.svg";
+// import ghostImg from "../../../assets/ghost.svg";
 
 import "./aboutSite.css";
 
@@ -12,20 +12,13 @@ const AboutSite = () => {
     <div className="ruby-blog__about-site__container">
       <div className="ruby-blog__about-site__container__short-info">
         <div className="ruby-blog__about-site__container__short-info__head-div">
-          <h2>- About Site - </h2>
-          <p>What Why and How of the Ruby Blog site</p>
+          <h2>- About Samson Sanyaolu - </h2>
+          <p>About me and my Blog site</p>
         </div>
         <div className="ruby-blog__about-site__container__short-info__para-div">
           <p>
-            Created out of Fun, Ruby Blog is a creation of two people. The sole
-            aim of the website is - well, nothing. Out of some excessive
-            curiosity and that extra passion for coding ( sometimes not ), I
-            developed it to learn-know-grow more. Talking on the topic of
-            design, a beautiful layout ( feels to me ) is used to showcase your
-            awesome ( or not ) articles. The way it has been laid out tells
-            itself a whole story. If this doesn't impress you, I don't know what
-            will. You can know about the people behind this blog in the below
-            section.
+          I have the right blend of design thinking and industry skills needed to build technological ( solutions based ) on digital design and development to solve problems.
+          I am passionate about creating responsive user experiences and websites to help organizations sustain seamless ( web presence, solve problems, optimize processes ) and make better business decisions.
           </p>
           <p>
             Coming to the coding, the first, ( & proud feel ) thing is-site is
@@ -50,8 +43,8 @@ const AboutSite = () => {
             <img src={meImg} alt="programmer_img" />
           </div>
           <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__headinfo">
-            <h2>It's ME</h2>
-            <p>Programmer behind the Ruby Blog</p>
+            <h2>Samson Sanyaolu</h2>
+            <p>Programmer behind the Sosamson Blog</p>
           </div>
           <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__parainfo">
             <p>
@@ -62,7 +55,7 @@ const AboutSite = () => {
           </div>
           <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social">
             <a
-              href="https://github.com/TidbitsJS"
+              href="https://github.com/sosamsony"
               target="_blank"
               rel="noreferrer"
             >
@@ -71,41 +64,12 @@ const AboutSite = () => {
               </div>
             </a>
             <a
-              href="https://www.instagram.com/tidbits.js/"
+              href="https://www.instagram.com/sosamsony/"
               target="_blank"
               rel="noreferrer"
             >
               <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social-instagram">
                 <AiOutlineInstagram />
-              </div>
-            </a>
-          </div>
-        </div>
-        <div className="ruby-blog__about-site__container__credits__designer-div">
-          <div className="ruby-blog__about-site__container__credits__designer-div__profile-div">
-            <img src={ghostImg} alt="ghost_img" />
-          </div>
-          <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__headinfo">
-            <h2>It's GHOST</h2>
-            <p>Designer behind the Ruby Blog</p>
-          </div>
-          <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__parainfo">
-            <p>
-              Ghost is a free and open source blogging platform written in
-              JavaScript and designed to simplify the process of online
-              publishing for individual bloggers as well as online publications.
-            </p>
-          </div>
-          <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social">
-            <a href="https://ghost.org/" target="_blank" rel="noreferrer">
-              <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social-ghost">
-                <GiFrozenRing />
-              </div>
-            </a>
-
-            <a href="https://ruby.ghost.io/" target="_blank" rel="noreferrer">
-              <div className="ruby-blog__about-site__container__credits__programmer-div__profile-div__social-ruby">
-                <DiRuby />
               </div>
             </a>
           </div>
