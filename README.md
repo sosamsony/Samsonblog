@@ -1,8 +1,8 @@
 # Ruby Blog
 
-Made out of inspiration from one of the themes of [ghost.io](https://ghost.org/themes/ruby), ruby is a blog website.
+Made out of inspiration from [Sosamson](https://sosamson.com), samsonblog is a blog website.
 
-Here are the things that make ruby special -
+Here are the things that make samsonblog special -
 
 - Developed using ReactJS
 - Elegant Design
