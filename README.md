@@ -1,4 +1,4 @@
-# Ruby Blog
+# Sosamson Blog
 
 Made out of inspiration from [Sosamson](https://sosamson.com), samsonblog is a blog website.
 

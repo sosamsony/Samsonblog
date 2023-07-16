@@ -18,7 +18,7 @@ const Header = () => {
     <div className="ruby-blog__header-container">
       <div className="ruby-blog__header-container__logo">
         <div>
-          <Link to="/">Ruby</Link>
+          <Link to="/">Sosamson Blog</Link>
         </div>
       </div>
       <div className="ruby-blog__header-container__nav">
