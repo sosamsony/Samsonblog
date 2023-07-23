@@ -2,7 +2,7 @@ import airPodsCool from "./md/airPodsCool.md";
 import doYouNeedAnAppleTV from "./md/doYouNeedAnAppleTV.md";
 import eraOfSmartWatches from "./md/eraOfSmartWatches.md";
 import iPadReplacement from "./md/iPadReplacement.md";
-import isChromebookStillaThing from "./md/isChromebookStillaThing.md";
+import TheAdvantagesofLearningNewSkill from "./md/TheAdvantagesofLearningNewSkill.md";
 import mackbookReview from "./md/mackbookReview.md";
 import packingForTravel from "./md/packingForTravel.md";
 import reviewingHomeMini from "./md/reviewingHomeMini.md";
@@ -31,15 +31,15 @@ const articles = [
     type: "basic",
     articleId: "article-2",
     tag: ["google", "technology", "computer science"],
-    title: "Is Chromebook Still a Thing",
-    desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?nature",
-    author: "https://source.unsplash.com/1600x900/?india",
+    title: "The Advantages of Learning New Skill",
+    desc: "In today's fast-paced and technology-driven world, acquiring new tech skills has become essential.",
+    img: "https://source.unsplash.com/1600x900/?skill",
+    author: "https://source.unsplash.com/1600x900/?world",
     authorName: "Samson Sanyaolu",
-    date: "4 May 2023",
+    date: "23 July 2023",
     address: "Abu Dhabi, U.A.E",
     readTime: 7,
-    articleData: isChromebookStillaThing,
+    articleData: TheAdvantagesofLearningNewSkill,
   },
   {
     type: "basic",
@@ -241,15 +241,15 @@ const articles = [
     type: "basic",
     articleId: "article-17",
     tag: ["google", "technology", "computer science"],
-    title: "Google - The Big G",
-    desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?internet",
-    author: "https://source.unsplash.com/1600x900/?india",
+    title: "The Advantages of Learning New Skill",
+    desc: "In today's fast-paced and technology-driven world, acquiring new tech skills has become essential.",
+    img: "https://source.unsplash.com/1600x900/?skill",
+    author: "https://source.unsplash.com/1600x900/?world",
     authorName: "Samson Sanyaolu",
-    date: "4 June 2023",
+    date: "23 July 2023",
     address: "Abu Dhabi, U.A.E",
-    readTime: 13,
-    articleData: isChromebookStillaThing,
+    readTime: 7,
+    articleData: TheAdvantagesofLearningNewSkill,
   },
   {
     type: "basic",
