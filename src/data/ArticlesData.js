@@ -4,7 +4,7 @@ import eraOfSmartWatches from "./md/eraOfSmartWatches.md";
 import iPadReplacement from "./md/iPadReplacement.md";
 import TheAdvantagesofLearningNewSkill from "./md/TheAdvantagesofLearningNewSkill.md";
 import mackbookReview from "./md/mackbookReview.md";
-import packingForTravel from "./md/packingForTravel.md";
+import chromeForTesting from "./md/chromeForTesting.md";
 import reviewingHomeMini from "./md/reviewingHomeMini.md";
 import whatsOnMyiPhone from "./md/whatsOnMyiPhone.md";
 import whatisJS from "./md/whatIsJS.md";
@@ -115,15 +115,15 @@ const articles = [
     type: "fancy",
     articleId: "article-8",
     tag: ["Tips & Tricks", "life", "ideas"],
-    title: "Packing for Travel",
-    desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
+    title: "Chrome For Testing",
+    desc: "Chrome for Testing has been created purely for browser automation.",
     img: "https://source.unsplash.com/1600x900/?colors",
     author: "https://source.unsplash.com/1600x900/?tree",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
     address: "Abu Dhabi, U.A.E",
     readTime: 4,
-    articleData: packingForTravel,
+    articleData: chromeForTesting,
   },
   {
     type: "basic",
