@@ -221,7 +221,7 @@ const articles = [
     date: "4 June 2023",
     address: "Abu Dhabi, U.A.E",
     readTime: 9,
-    articleData: packingForTravel,
+    articleData: chromeForTesting,
   },
   {
     type: "basic",
