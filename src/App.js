@@ -8,6 +8,7 @@ import Footer from "./container/Footer/Footer";
 import AuthorPage from "./container/pages/Author/AuthorPage";
 import NotFound from "./container/NotFound/NotFound";
 import AboutSite from "./container/pages/About/AboutSite";
+import ArticleList from "./components/ArticleList"; // Import ArticleList component
 
 import "./App.css";
 
@@ -20,6 +21,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/articles" exact> {/* New route for ArticleList */}
+            <ArticleList />
           </Route>
           <Route path="/tag" exact>
             <TagPage />
