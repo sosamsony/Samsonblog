@@ -12,6 +12,9 @@ import surveyJS from "./md/surveyJS.md";
 import learnReact from "./md/learnReact.md";
 import learnGatsby from "./md/learnGatsby.md";
 
+// Import the fetch function
+import { fetchUnsplashImage } from './fetchUnsplashImage';
+
 const articles = [
   {
     type: "fancy",
@@ -19,7 +22,7 @@ const articles = [
     tag: ["Apple", "technology"],
     title: "What's on MY iPhone?",
     desc: "What iPhone do I have? How to find out your iPhone model number.",
-    img: "https://source.unsplash.com/1600x900/?phone",
+    imgQuery: "skill", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -33,7 +36,7 @@ const articles = [
     tag: ["google", "technology", "computer science"],
     title: "The Advantages of Learning New Skill",
     desc: "In today's fast-paced and technology-driven world, acquiring new tech skills has become essential.",
-    img: "https://source.unsplash.com/1600x900/?skill",
+    imgQuery: "skill", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "23 July 2023",
@@ -47,7 +50,7 @@ const articles = [
     tag: ["Apple", "technology"],
     title: "Do You Need an Apple TV?",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?water",
+    imgQuery: "water", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -61,7 +64,7 @@ const articles = [
     tag: ["review", "apple", "technology", "thoughts"],
     title: "MacBook Air 2018 Review",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?google",
+    imgQuery: "googgle", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -75,7 +78,7 @@ const articles = [
     tag: ["wearable", "fashion", "devices", "tips & tricks"],
     title: "The Era of Smartwatchs",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?house",
+    imgQuery: "house", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -89,7 +92,7 @@ const articles = [
     tag: ["apple", "technology", "devices"],
     title: "iPad as a Notebook Replacement",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?fort",
+    imgQuery: "people", // Use a query to fetch images dynamically
     author: "https://source.unsplash.com/1600x900/?people",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -103,7 +106,7 @@ const articles = [
     tag: ["apple", "wearable", "review"],
     title: "AirPods are Cool",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?computer",
+    imgQuery: "computer", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -117,7 +120,7 @@ const articles = [
     tag: ["Tips & Tricks", "life", "ideas"],
     title: "Chrome For Testing",
     desc: "Chrome for Testing has been created purely for browser automation.",
-    img: "https://source.unsplash.com/1600x900/?colors",
+    imgQuery: "color", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -131,7 +134,7 @@ const articles = [
     tag: ["google", "technology", "review", "devices"],
     title: "Reviewing the Home Mini",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?animals",
+    imgQuery: "animals", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 May 2023",
@@ -187,7 +190,7 @@ const articles = [
     tag: ["apple", "review"],
     title: "Is Apple worth it?",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?apple",
+    imgQuery: "apple", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 June 2023",
@@ -201,7 +204,7 @@ const articles = [
     tag: ["review", "technology"],
     title: "Realme Narzo 20 Review",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?mobile",
+    imgQuery: "mobile", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 June 2023",
@@ -215,7 +218,7 @@ const articles = [
     tag: ["Tips & Tricks", "life", "ideas"],
     title: "Not that typical - How To do X",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?life",
+    imgQuery: "life", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 June 2023",
@@ -229,7 +232,7 @@ const articles = [
     tag: ["review", "technology"],
     title: "Asus Rogue Review",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?asus",
+    imgQuery: "asus", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 June 2023",
@@ -243,7 +246,7 @@ const articles = [
     tag: ["google", "technology", "computer science"],
     title: "The Advantages of Learning New Skill",
     desc: "In today's fast-paced and technology-driven world, acquiring new tech skills has become essential.",
-    img: "https://source.unsplash.com/1600x900/?skill",
+    imgQuery: "skill", // Use a query to fetch images dynamically
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "23 July 2023",
@@ -285,7 +288,7 @@ const articles = [
     tag: ["review", "movie", "horror"],
     title: "The Ring Review",
     desc: "Nunc fringilla turpis tincidunt purus malesuada, vel faucibus mauris finibus.",
-    img: "https://source.unsplash.com/1600x900/?horror",
+    imgQuery: "skill", // Use a query to fetch images dynamically
     author: "https://source.unsplash.com/1600x900/?usa",
     authorName: "Samson Sanyaolu",
     date: "4 June 2023",
