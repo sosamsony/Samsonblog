@@ -22,7 +22,7 @@ const articles = [
     img: "https://api.otakoyi.com/uploads/content/2020/08/27/1280/what-is-gatsby-js-and-why-use-it_03-208x.png",
     author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
-    date: "4 May 2023",
+    date: "4 May 2024",
     address: "Abu Dhabi, U.A.E",
     readTime: 5,
     articleData: whatsOnMyiPhone,
