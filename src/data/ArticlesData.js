@@ -288,7 +288,7 @@ const articles = [
     img: "https://raw.githubusercontent.com/getify/You-Dont-Know-JS/2nd-ed/get-started/images/cover.png",
     author: "https://source.unsplash.com/1600x900/?usa",
     authorName: "Samson Sanyaolu",
-    date: "4 June 2023",
+    date: "4 June 2024",
     address: "Abu Dhabi, U.A.E",
     readTime: 9,
     articleData: mackbookReview,
