@@ -286,7 +286,7 @@ const articles = [
     title: "The Ring Review",
     desc: "In today's fast-paced and technology-driven world, acquiring new tech skills has become essential.",
     img: "https://raw.githubusercontent.com/getify/You-Dont-Know-JS/2nd-ed/get-started/images/cover.png",
-    author: "https://source.unsplash.com/1600x900/?usa",
+    author: "https://blog.sosamson.com/static/media/me.540bee70.svg",
     authorName: "Samson Sanyaolu",
     date: "4 June 2024",
     address: "Abu Dhabi, U.A.E",
