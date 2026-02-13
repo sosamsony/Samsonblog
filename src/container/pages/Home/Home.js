@@ -23,7 +23,7 @@ const Home = () => {
 
     setTimeout(() => {
       setShowSpinner(false);
-      let increaseArticles = articles.slice(0, numberOfArticles.length + 4);
+      let increaseArticles = articles.slice(0, numberOfArticles.length + 3);
       setNumberOfArticles(increaseArticles);
     }, 3000);
   };
