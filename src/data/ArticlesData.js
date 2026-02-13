@@ -30,6 +30,19 @@ const authorImage = "https://blog.sosamson.com/static/media/me.540bee70.svg";
  * Works on localhost and production without hardcoding domain.
  * In CRA, relative /api paths will resolve to the same origin.
  */
+
+const slugify = (text) =>
+  text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")          // replace &
+    .replace(/[^\w\s-]/g, "")      // remove special chars
+    .replace(/\s+/g, "-")          // spaces to -
+    .replace(/--+/g, "-");         // remove duplicate -
+
+
+
 const generateCover = (title, tag) =>
   `/api/og?title=${encodeURIComponent(title)}&tag=${encodeURIComponent(
     tag || "Tech"
@@ -415,4 +428,10 @@ const articles = [
   },
 ];
 
-export default articles;
+
+const articlesWithSlug = articles.map((article) => ({
+  ...article,
+  slug: slugify(article.title),
+}));
+
+export default articlesWithSlug;
