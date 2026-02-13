@@ -16,6 +16,7 @@
   -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
     both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  background-color: #bd7023;
 }
 
 .fancy-article-card__container::before {
@@ -46,6 +47,7 @@
   height: 100%;
   border-radius: 7px;
   overflow: hidden; /* important */
+  display: none;
 }
 
 .fancy-article-card__container__image-div img {
