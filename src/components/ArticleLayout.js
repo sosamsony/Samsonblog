@@ -14,38 +14,57 @@ import gfm from "remark-gfm";
 import "./articleLayout.css";
 
 const ArticleLayout = (props) => {
-  const [mdText, setMdText] = useState(null);
+  const [mdText, setMdText] = useState("");
 
   useEffect(() => {
+    let isMounted = true;
+
     fetch(props.data.articleData)
       .then((response) => response.text())
-      .then((text) => setMdText(text));
-  }, [mdText, props.data.articleData]);
+      .then((text) => {
+        if (isMounted) setMdText(text);
+      })
+      .catch(() => {
+        if (isMounted) setMdText("⚠️ Failed to load this article content.");
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [props.data.articleData]);
+
+  const primaryTag = props.data?.tag?.[0] || "Tech";
 
   return (
     <div className="ruby-blog__article-layout__container">
       <div className="ruby-blog__article-layout__container__head">
-        <Tag tag={props.data.tag[0]} />
+        <Tag tag={primaryTag} />
+
         <div className="ruby-blog__article-layout__container__head-title">
           <h2>{props.data.title}</h2>
         </div>
+
+        <div className="ruby-blog__article-layout__container__date">
+          <p>
+            {props.data.date} <span>• {props.data.readTime} min read</span>
+          </p>
+        </div>
       </div>
-      <div className="ruby-blog__article-layout__container__date">
-        <p>
-          {props.data.date} <span>{props.data.readTime} min read</span>
-        </p>
-      </div>
+
       <div className="ruby-blog__article-layout__container__image-div">
-        <img src={props.data.img} alt="article__layout__img" />
+        <img src={props.data.img} alt={props.data.title} />
       </div>
+
       <div className="ruby-blog__article-layout__container__content">
-        <ReactMarkdown remarkPlugins={[gfm]} children={mdText} />
+        <ReactMarkdown remarkPlugins={[gfm]}>{mdText}</ReactMarkdown>
       </div>
+
       <div className="ruby-blog__article-layout__container__hashtags">
-        {props.data.tag.map((tag, index) => (
-          <div key={tag + index}>#{tag}</div>
+        {(props.data.tag || []).map((tag, index) => (
+          <div key={`${tag}-${index}`}>#{tag}</div>
         ))}
       </div>
+
       <div className="ruby-blog__article-layout__container__socialMedia">
         <div className="ruby-blog__article-layout__container__socialMedia-facebook">
           <GrFacebookOption />
