@@ -7,19 +7,20 @@ import articles from "../../../data/ArticlesData";
 
 import "./authorPage.css";
 
-const AuthorPage = (props) => {
+const AUTHOR_IMAGE = "https://blog.sosamson.com/static/media/me.540bee70.svg";
+
+const AuthorPage = () => {
   const [filterAuthor, setFilterAuthor] = useState("Samson Sanyaolu");
-  const [filterAuthorImg, setFilterAuthorImg] = useState(
-    "https://source.unsplash.com/1600x900/?uae"
-  );
+  const [filterAuthorImg, setFilterAuthorImg] = useState(AUTHOR_IMAGE);
 
   const authorProps = useLocation();
 
   useEffect(() => {
-    if (authorProps.state) {
+    if (authorProps.state?.authorName) {
       setFilterAuthor(authorProps.state.authorName);
-      setFilterAuthorImg(authorProps.state.authorImg);
     }
+    // ✅ Always use your image (ignores authorProps.state.authorImg)
+    setFilterAuthorImg(AUTHOR_IMAGE);
   }, [authorProps]);
 
   return (
@@ -33,30 +34,29 @@ const AuthorPage = (props) => {
             {filterAuthor}
           </div>
         </div>
+
         <div className="ruby-blog__home-container__content-article-div">
           {articles.map((article, index) => {
             if (
               filterAuthor.toLowerCase() === article.authorName.toLowerCase()
             ) {
-              if (article.type === "fancy") {
-                return (
-                  <FancyArticleCard
-                    data={article}
-                    key={index + article.authorName}
-                  />
-                );
-              } else {
-                return (
-                  <BasicArticleCard
-                    data={article}
-                    key={article.authorName + index}
-                  />
-                );
-              }
-            } else return "";
+              return article.type === "fancy" ? (
+                <FancyArticleCard
+                  data={article}
+                  key={`${article.articleId}-${index}`}
+                />
+              ) : (
+                <BasicArticleCard
+                  data={article}
+                  key={`${article.articleId}-${index}`}
+                />
+              );
+            }
+            return null;
           })}
         </div>
       </div>
+
       <div className="ruby-blog__home-container__sideBar">
         <ShortcutBar />
       </div>
