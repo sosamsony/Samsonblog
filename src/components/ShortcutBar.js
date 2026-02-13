@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import RecentPost from "./RecentPost";
 import TagLine from "./TagLine";
-import articles from "../../../data/ArticlesData";
+import articles from "../data/ArticlesData";
 
 import "./shortcutBar.css";
 
