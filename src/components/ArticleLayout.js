@@ -16,22 +16,30 @@ import "./articleLayout.css";
 const ArticleLayout = (props) => {
   const [mdText, setMdText] = useState("");
 
-  useEffect(() => {
-    let isMounted = true;
 
-    fetch(props.data.articleData)
-      .then((response) => response.text())
-      .then((text) => {
-        if (isMounted) setMdText(text);
-      })
-      .catch(() => {
-        if (isMounted) setMdText("⚠️ Failed to load this article content.");
-      });
 
-    return () => {
-      isMounted = false;
-    };
-  }, [props.data.articleData]);
+useEffect(() => {
+  fetch(props.data.articleData)
+    .then((response) => response.text())
+    .then((text) => {
+      // ✅ Remove YAML frontmatter: --- ... ---
+      const withoutFrontmatter = text.replace(/^---[\s\S]*?---\s*/m, "");
+
+      // ✅ Remove "metadata style" blocks like:
+      // title: "..."\n description: "..."\n date: "..."\n tags: [...] \n cover: "..."
+      const withoutMetaLines = withoutFrontmatter.replace(
+        /^(title|description|date|tags|readTime|cover)\s*:\s*.*$\n?/gim,
+        ""
+      );
+
+      setMdText(withoutMetaLines.trim());
+    })
+    .catch(() => setMdText("⚠️ Failed to load this article content."));
+}, [props.data.articleData]);
+
+
+  
+
 
   const primaryTag = props.data?.tag?.[0] || "Tech";
 
