@@ -10,7 +10,7 @@ import "./home.css";
 
 const Home = () => {
   const [numberOfArticles, setNumberOfArticles] = useState(
-    articles.slice(0, 11)
+    articles.slice(0, 9)
   );
   const [showSpinner, setShowSpinner] = useState(false);
 
