@@ -24,10 +24,12 @@ import webDevCareer2023 from "./md/webDevCareer2023.md";
 import websiteVsWebApp from "./md/websiteVsWebApp.md";
 import whatisDNS from "./md/whatisDNS.md";
 
+const authorImage = "https://blog.sosamson.com/static/media/me.540bee70.svg";
 
-const authorImage =
-  "https://blog.sosamson.com/static/media/me.540bee70.svg";
-
+/**
+ * Works on localhost and production without hardcoding domain.
+ * In CRA, relative /api paths will resolve to the same origin.
+ */
 const generateCover = (title, tag) =>
   `/api/og?title=${encodeURIComponent(title)}&tag=${encodeURIComponent(
     tag || "Tech"
@@ -40,7 +42,10 @@ const articles = [
     tag: ["SEO", "Next.js", "Performance"],
     title: "Modern SEO in Next.js Applications (2026 Guide)",
     desc: "A practical guide to technical SEO in Next.js: metadata, indexing, structured data, and performance optimization.",
-    img: generateCover("Modern SEO in Next.js Applications (2026 Guide)", "SEO"),
+    img: generateCover(
+      "Modern SEO in Next.js Applications (2026 Guide)",
+      "SEO"
+    ),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "12 January 2026",
@@ -55,10 +60,7 @@ const articles = [
     tag: ["Architecture", "System Design"],
     title: "System Design for Frontend & Backend Engineers",
     desc: "Scalability, caching, load balancing, queues, and tradeoffs explained clearly.",
-    img: generateCover(
-      "System Design for Frontend & Backend Engineers",
-      "Architecture"
-    ),
+    img: generateCover("System Design for Frontend & Backend Engineers", "Architecture"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "18 October 2025",
@@ -118,10 +120,7 @@ const articles = [
     tag: ["Fullstack", "Architecture", "Next.js"],
     title: "Designing a Production-Ready Fullstack Architecture",
     desc: "A blueprint for scalable frontend/backend systems including auth, data, caching, and observability.",
-    img: generateCover(
-      "Designing a Production-Ready Fullstack Architecture",
-      "Fullstack"
-    ),
+    img: generateCover("Designing a Production-Ready Fullstack Architecture", "Fullstack"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "9 September 2024",
@@ -151,10 +150,7 @@ const articles = [
     tag: ["Performance", "Core Web Vitals", "SEO"],
     title: "Improving Core Web Vitals in Large Applications",
     desc: "Improve LCP, CLS, and INP with practical optimization techniques around rendering and assets.",
-    img: generateCover(
-      "Improving Core Web Vitals in Large Applications",
-      "Performance"
-    ),
+    img: generateCover("Improving Core Web Vitals in Large Applications", "Performance"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "11 November 2023",
@@ -169,10 +165,7 @@ const articles = [
     tag: ["JavaScript", "Fundamentals", "Runtime"],
     title: "JavaScript Deep Dive: How It Works Under the Hood",
     desc: "Execution context, event loop, microtasks, closures, and memory management explained.",
-    img: generateCover(
-      "JavaScript Deep Dive: How It Works Under the Hood",
-      "JavaScript"
-    ),
+    img: generateCover("JavaScript Deep Dive: How It Works Under the Hood", "JavaScript"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "19 August 2023",
@@ -241,10 +234,6 @@ const articles = [
     articleData: jamstackArchitecture,
   },
 
-  // -------------------------
-  // Additional MD files (to reach 25)
-  // -------------------------
-
   {
     type: "basic",
     articleId: "article-14",
@@ -266,10 +255,7 @@ const articles = [
     tag: ["Web Trends", "Tooling", "Innovation"],
     title: "Cutting Edge Web Development: What’s Actually Worth Using?",
     desc: "A practical breakdown of modern web trends—what to adopt, what to avoid, and why.",
-    img: generateCover(
-      "Cutting Edge Web Development: What’s Actually Worth Using?",
-      "Web Trends"
-    ),
+    img: generateCover("Cutting Edge Web Development: What’s Actually Worth Using?", "Web Trends"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "18 June 2022",
@@ -284,10 +270,7 @@ const articles = [
     tag: ["Database", "Scaling", "Backend"],
     title: "Database Scaling Strategies for Growing Applications",
     desc: "Indexes, replication, caching, partitioning, and how to think about scaling data safely.",
-    img: generateCover(
-      "Database Scaling Strategies for Growing Applications",
-      "Database"
-    ),
+    img: generateCover("Database Scaling Strategies for Growing Applications", "Database"),
     author: authorImage,
     authorName: "Samson Sanyaolu",
     date: "1 August 2022",
@@ -433,4 +416,3 @@ const articles = [
 ];
 
 export default articles;
-
