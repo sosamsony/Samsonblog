@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { IoIosCloseCircle } from "react-icons/io";
 import RecentPost from "../../components/RecentPost";
 import TagLine from "../../components/TagLine";
+import articles from "../../data/ArticlesData";
 
 import "./header.css";
+
+function normalizeTag(t) {
+  return (t || "").toString().trim().toLowerCase();
+}
+
+function parseHumanDate(dateStr) {
+  const d = new Date(dateStr);
+  return isNaN(d.getTime()) ? new Date(0) : d;
+}
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -14,6 +24,34 @@ const Header = () => {
     setShowNavbar(value);
   };
 
+  const { topTags, recentPosts } = useMemo(() => {
+    // Tag counts
+    const tagCountMap = new Map();
+    articles.forEach((a) => {
+      (a.tag || []).forEach((t) => {
+        const key = normalizeTag(t);
+        if (!key) return;
+        tagCountMap.set(key, (tagCountMap.get(key) || 0) + 1);
+      });
+    });
+
+    const topTags = Array.from(tagCountMap.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([title, count]) => ({ title, count }));
+
+    const recentPosts = [...articles]
+      .sort((a, b) => parseHumanDate(b.date) - parseHumanDate(a.date))
+      .slice(0, 5)
+      .map((a) => ({
+        title: a.title,
+        date: a.date,
+        link: a.articleId,
+      }));
+
+    return { topTags, recentPosts };
+  }, []);
+
   return (
     <div className="ruby-blog__header-container">
       <div className="ruby-blog__header-container__logo">
@@ -21,24 +59,18 @@ const Header = () => {
           <Link to="/">Sosamson Blog</Link>
         </div>
       </div>
+
       <div className="ruby-blog__header-container__nav">
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/tag">Tag</Link>
-            </li>
-            <li>
-              <Link to="/authors">Authors</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/tag">Tag</Link></li>
+            <li><Link to="/authors">Authors</Link></li>
+            <li><Link to="/about">About</Link></li>
           </ul>
         </nav>
       </div>
+
       <div className="ruby-blog__header-container__nav-smallDevice">
         <div
           onClick={() => handleShowNavbar(true)}
@@ -71,10 +103,7 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/authors"
-                        onClick={() => handleShowNavbar(false)}
-                      >
+                      <Link to="/authors" onClick={() => handleShowNavbar(false)}>
                         Authors
                       </Link>
                     </li>
@@ -92,31 +121,14 @@ const Header = () => {
                   Tags
                 </p>
                 <div className="ruby-blog__header-container__nav-smallDevice__sidebar-content__tagslist">
-                  <TagLine
-                    title="Apple"
-                    count={8}
-                    clickEvent={handleShowNavbar}
-                  />
-                  <TagLine
-                    title="Google"
-                    count={7}
-                    clickEvent={handleShowNavbar}
-                  />
-                  <TagLine
-                    title="Review"
-                    count={3}
-                    clickEvent={handleShowNavbar}
-                  />
-                  <TagLine
-                    title="Tips & Tricks"
-                    count={5}
-                    clickEvent={handleShowNavbar}
-                  />
-                  <TagLine
-                    title="Wearable"
-                    count={4}
-                    clickEvent={handleShowNavbar}
-                  />
+                  {topTags.map((t) => (
+                    <TagLine
+                      key={t.title}
+                      title={t.title}
+                      count={t.count}
+                      clickEvent={handleShowNavbar}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -125,24 +137,15 @@ const Header = () => {
                   Recent Posts
                 </p>
                 <div className="ruby-blog__header-container__nav-smallDevice__sidebar-content__recentPosts-posts">
-                  <RecentPost
-                    title="What's on My iPhone?"
-                    date="May 9, 2019"
-                    link="article-1"
-                    clickEvent={handleShowNavbar}
-                  />
-                  <RecentPost
-                    title="Is Chromebook Still a Thing?"
-                    date="May 9, 2019"
-                    link="article-2"
-                    clickEvent={handleShowNavbar}
-                  />
-                  <RecentPost
-                    title="Do You Need an Apple TV?"
-                    date="May 9, 2019"
-                    link="article-3"
-                    clickEvent={handleShowNavbar}
-                  />
+                  {recentPosts.map((p) => (
+                    <RecentPost
+                      key={p.link}
+                      title={p.title}
+                      date={p.date}
+                      link={p.link}
+                      clickEvent={handleShowNavbar}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
