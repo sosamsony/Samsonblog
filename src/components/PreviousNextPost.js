@@ -4,28 +4,24 @@ import { animateScroll as scroll } from "react-scroll";
 
 import "./previousNextPost.css";
 
-const PreviousNextPost = (props) => {
-  if (props.article) {
+const PreviousNextPost = ({ article, postType, content }) => {
+  const handleScrollTop = () => scroll.scrollToTop();
+
+  if (article) {
     return (
-      <Link
-        to={{
-          pathname: `/articles/${props.article.article.slug}`,
-          state: props.article.articleId,
-        }}
-        onClick={() => scroll.scrollToTop()}
-      >
+      <Link to={`/articles/${article.slug}`} onClick={handleScrollTop}>
         <div
           className="ruby-blog__container__anotherPost-thumbnail"
           style={{
-            backgroundImage: `url(${props.article.img})`,
-            textAlign: props.content,
+            backgroundImage: `url(${article.img})`,
+            textAlign: content,
           }}
         >
           <div className="ruby-blog__container__anotherPost-thumbnail__post-type">
-            {props.postType}
+            {postType}
           </div>
           <div className="ruby-blog__container__anotherPost-thumbnail__articleTitle">
-            {props.article.title}
+            {article.title}
           </div>
         </div>
       </Link>
@@ -37,14 +33,14 @@ const PreviousNextPost = (props) => {
       className="ruby-blog__container__anotherPost-thumbnail"
       style={{
         opacity: 0,
-        textAlign: props.content,
+        textAlign: content,
       }}
     >
       <div className="ruby-blog__container__anotherPost-thumbnail__post-type">
-        {props.postType}
+        {postType}
       </div>
       <div className="ruby-blog__container__anotherPost-thumbnail__articleTitle">
-        ""
+        &quot;
       </div>
     </div>
   );
